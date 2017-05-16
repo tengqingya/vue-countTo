@@ -4,47 +4,46 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index_fileupload.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'vue-count-to.min.js',
-    library: 'CountTo',
+    filename: 'index_fileupload.min.js',
+    library: 't_fileupload',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
   module: {
-    rules: [
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader'
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
-      }
-    ]
+      loaders:[
+          {
+              test: /\.vue$/,
+              loader: 'vue-loader'
+          },
+          {
+              test: /\.js$/,
+              loader: 'babel-loader',
+              exclude: /node_modules/
+          },
+          {
+              test: /\.css$/,
+              loader: 'style-loader!css-loader'
+          },
+          {
+              test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
+              loader: 'file-loader'
+          },
+          {
+              test: /\.(png|jpe?g|gif|svg)(\?\S*)?$/,
+              loader: 'file-loader',
+              query: {
+                  name: '[name].[ext]?[hash]'
+              }
+          }
+      ]
   },
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.esm.js'
+      vue$: 'vue/dist/vue.js'
     }
   },
   externals: {

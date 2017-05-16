@@ -1,63 +1,59 @@
-# vue-countTo
-vue-countTo is a dependency-free, lightweight vue component that can be overwrited  easingFn by yourself.
-You can set startVal and endVal ,it will automatic judge count up or count down.
-It is learn from countUp.js;
+# t_fileupload
+```
+element ui upload Component
+twice packaging
+<img src="http://img.blog.csdn.net/20170516171221723?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3RhcnJ5bmluZ2xvbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"/>
+[demo](http://img.blog.csdn.net/20170516171221723?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3RhcnJ5bmluZ2xvbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast) : http://img.blog.csdn.net/20170516171221723?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvc3RhcnJ5bmluZ2xvbmc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast
+```
 
-## [Try the demo](http://panjiachen.github.io/countTo/demo/)
+## [Try the source](https://github.com/tengqingya/myFirstVue)
+
+```
+[https://github.com/tengqingya/myFirstVue](https://github.com/tengqingya/myFirstVue)
+```
 
 ### How to use?
 ```bash
-npm install vue-count-to
+npm install t_fileupload
 ```
 
 ### Example
 
 ```vue
 <template>
-	<countTo :startVal='startVal' :endVal='endVal' :duration='3000'></countTo>
+	<fileupload @fileadd="fileAdd" @filedel="fileDel" :files="fileShow" :num="fileNum"></fileupload>
 </template>
 
 <script>
-  import countTo from 'vue-count-to';
-  export default {
-    components: { countTo },
-    data () {
-      return {
-        startVal: 0,
-        endVal: 2017
-      }
-    }
-  }
+            fileAdd:function (file) {
+                this.fileList.push(file)
+            },
+            fileDel:function (file) {
+                removeArrByValue(this.fileList,file)
+            },
+
+            fileList:[],
+            fileShow:[],
+            fileNum:3,
+
+            const removeArrByValue = (arr, val)=> {
+                    for(var i=0; i<arr.length; i++) {
+                        if(arr[i] == val) {
+                            arr.splice(i, 1);
+                            break;
+                        }
+                    }
+                }
 </script>
 ```
-demo:
+# explain
+```
 
-![demo](https://github.com/PanJiaChen/vue-countTo/blob/master/countDemo.gif)
+ 1. fileadd:method that u add a file and uploaded.
+ 2. filedel:method that u delete a file.
+ 3. files:files that u what to show the first time before  uploading a
+    file(use the image url,such
+    as:http://image.***.com/image/ebook/823df1d1320742efabebe46565518abaz/auto)
+ 4. num:limit the upload file numbers,default 1.
 
-Use CDN Script: [demo](https://github.com/PanJiaChen/vue-countTo/blob/master/demo/index.html)
-
-
-
-### Options
-|    Property    |    Description   |   type   |	default	|
-| -----------------  | ---------------- | :--------: | :----------: |
-| startVal       | the value you want to begin at |Number| 0 |
-| endVal         | the value you want to arrive at |Number | 2017 |
-| duration  | duration in millisecond | Number | 3000 |
-| autoplay     | when mounted autoplay | Boolean | true |
-| decimals     | the number of decimal places to show | Number | 0 |
-| decimal     | the split decimal | String | . |
-| separator     | the separator | String | , |
-| prefix     | the prefix | String | '' |
-| suffix     | the suffix | String | '' |
-| useEasing     | is use easing function | Boolean | true |
-| easingFn     | the easing function | Function | — |
-
-
-### Functions
-| Function Name | Description   |
-| :--------:   | -----  |
-|    mountedCallback    |  when mounted will emit  mountedCallback  |
-|    start    |  start the countTo  |
-|    pause   |  pause  the countTo |
-|    reset    |  reset  the countTo |
+```
