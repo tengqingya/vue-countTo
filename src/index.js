@@ -1,5 +1,5 @@
-import CountTo from './vue-countTo.vue';
-export default CountTo;
+import fileupload from './fileupload.vue';
+export default fileupload;
 if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.component('count-to', CountTo);
+  window.Vue.component('fileupload', fileupload);
 }

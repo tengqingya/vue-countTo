@@ -21,7 +21,7 @@ npm install t_fileupload
 
 ```vue
 <template>
-	<fileupload @fileadd="fileAdd" @filedel="fileDel" :files="fileShow" :num="fileNum"></fileupload>
+	<fileupload @fileadd="fileAdd" @filedel="fileDel" :files="fileShow" :num="fileNum" :action="action"></fileupload>
 </template>
 
 <script>
@@ -35,6 +35,7 @@ npm install t_fileupload
             fileList:[],
             fileShow:[],
             fileNum:3,
+            action:"/manage/upload/pic"
 
             const removeArrByValue = (arr, val)=> {
                     for(var i=0; i<arr.length; i++) {
@@ -55,5 +56,6 @@ npm install t_fileupload
     file(use the image url,such
     as:http://image.***.com/image/ebook/823df1d1320742efabebe46565518abaz/auto)
  4. num:limit the upload file numbers,default 1.
+ 5. action:the upload url from server(JAVA/NODE SERVER)
 
 ```

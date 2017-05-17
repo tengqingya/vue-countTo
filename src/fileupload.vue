@@ -5,7 +5,7 @@
 <template>
     <div>
         <el-upload
-                action="/manage/upload/pic"
+                action="action"
                 list-type="picture-card"
                 :on-preview="handlePictureCardPreview"
                 :on-remove="handleRemove"
@@ -43,7 +43,11 @@
                 type: Number,
                 default: 1
             },
-            files:Array
+            files:Array,
+            action:{
+                type: String,
+                default: ""
+            },
         },
         methods: {
             handleRemove(file, fileList) {
@@ -94,15 +98,10 @@
     }
 </script>
 
-<style>
-    .el-upload__input{
-        display: none !important;
-    }
-</style>
 <!--
-import fileupload from '../plugin/fileupload.vue'
-import {removeArrByValue} from '../util/arrutil.js'
-import {rowFile} from '../util/file.js'
+import fileupload from 't_fileupload/dist/index_fileupload.min.js'
+import {removeArrByValue} from 't_fileupload/src/arrutil.js'
+import {rowFile} from 't_fileupload/src/file.js'
 
 <fileupload @fileadd="fileAdd" @filedel="fileDel" :files="fileShow" :num="fileNum"></fileupload>
 

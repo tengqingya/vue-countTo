@@ -1,7 +1,7 @@
 {
   "name": "t_fileupload",
   "description": "fileupload by element ui",
-  "version": "1.0.5",
+  "version": "1.0.12",
   "author": "tengqingya<tengqingya@yeah.net>",
   "main": "dist/t_fileupload.min.js",
   "scripts": {
